@@ -30,3 +30,28 @@ Pero no estariamos aplicando a este principio.
 ---En otras palabras, si una clase B hereda de una clase A, cualquier instancia de B debe poder ser utilizada en cualquier lugar donde se espera una instancia de A, sin cambiar el comportamiento del programa. Esto se debe a que B debe cumplir con todas las reglas y contratos que A establece, y no debe añadir nuevas reglas o suprimir las que A ya tiene.
 
 ---Este principio es muy importante para lograr la reutilización de código y para hacer que nuestros programas sean más flexibles y extensibles. En el caso de React, el principio de sustitución de Liskov se aplica al crear componentes que puedan ser intercambiados sin afectar el comportamiento del programa.
+
+## - Interface segregation Principle (ISP)
+
+	-Este principio dicta que una clase o componente, debe recibir la misma cantidad de props que su inteface o type definida lo dicte: por ejemplo
+	--Si tenemos la siguiente props con el siguiente componente
+
+	type Props = {
+		title: string;
+		body: string;
+		img: string
+	}
+
+	export const Thumbnail = ({title, body, img}:Props) = > {
+		return <img href={img}>
+		</img>
+	}
+
+	--Vemos que la props definida para el componente Thumbnail es (titulo, body, img) pero la unica que se aplica o esta en uso, dentro del componente, es img (la URL de la imagen), esto podemos corregirlo de la siguiente manera
+
+		export const Thumbnail = ({ img: string }) = > {
+		return <img href={img}>
+		</img>
+	}
+
+	-En el ejemplo del repositorio, vemos que en las props del componente _PostDate_ y _PostTitle_ solamente estan en uso (title) para el caso de _PostDate_ y (createdAt) en el caso de _PostTitle_
