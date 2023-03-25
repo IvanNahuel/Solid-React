@@ -20,3 +20,13 @@ Pero no estariamos aplicando a este principio.
 -Entidades que tengamos en nuestor software, tienen que estar abiertas para extender, pero cerradas para ser modificadas, es decir por ejemplo: en vez de modificar nuestro componente que probablemente se este usando en toda nuestra aplicacion y que una sola modificacion podria llegar a romper otras cosas, tener la capacidad de añadir/extender funcionalidad de ese componente.
 
 -En este ejemplo, tenemos el siguiente boton, que podria llegar a tener distintos comportamientos, un boton normal y un boton con link, entonces separamos responsabilidades, haciendo que estos comportamientos sean componentes totalmente externos y un futuro aparte, si necesitamos otro boton con otro compoertamiento, solamente tenemos que crear el componente y listo.
+
+## - Liskov substitution Principle (LSP)
+
+- Liskov Sustitution Principle (LSP)
+
+-El objetivo principal del principio de substitucion de liskov, es que podamos reemplazar los objetos de la clase hija por objetos de su clase padre sin afectar el comportamiento del programa
+
+---En otras palabras, si una clase B hereda de una clase A, cualquier instancia de B debe poder ser utilizada en cualquier lugar donde se espera una instancia de A, sin cambiar el comportamiento del programa. Esto se debe a que B debe cumplir con todas las reglas y contratos que A establece, y no debe añadir nuevas reglas o suprimir las que A ya tiene.
+
+---Este principio es muy importante para lograr la reutilización de código y para hacer que nuestros programas sean más flexibles y extensibles. En el caso de React, el principio de sustitución de Liskov se aplica al crear componentes que puedan ser intercambiados sin afectar el comportamiento del programa.
